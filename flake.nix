@@ -29,12 +29,17 @@
       devShells.${system} = {
         jupiter = pkgs.mkShell {
           buildInputs = with pkgs; [
-            python3
-            python3Packages.jupyter
-            python3Packages.notebook
-            python3Packages.numpy
-            python3Packages.matplotlib
-            python3Packages.pytest
+            (python3.withPackages (
+              ps: with ps; [
+                ipython
+                jupyter
+                notebook
+                numpy
+                pandas
+                matplotlib
+                pytest
+              ]
+            ))
           ];
           shellHook = ''
             echo "Welcome to the Jupyter Notebook environment!"
