@@ -1,5 +1,5 @@
 {
-  description = "Multiple dev shells example";
+  description = "My dev shells";
 
   inputs.defaultpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nodejs16pkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
@@ -38,6 +38,7 @@
                 pandas
                 matplotlib
                 pytest
+                h5py
               ]
             ))
           ];
