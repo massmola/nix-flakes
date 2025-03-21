@@ -41,18 +41,10 @@
         node = pkgs.mkShell {
           buildInputs = [
             nodePkgs.nodejs_16
+            # nodePkgs.nodePackages."@angular/cli"
           ];
           shellHook = ''
-            echo "Welcome to the Node.js development environment!"
-          '';
-        };
-
-        other = pkgs.mkShell {
-          buildInputs = [
-            pkgs.hello
-          ];
-          shellHook = ''
-            echo "Welcome to the Hello world dev shell!"
+            echo "Welcome to the Node.js 16 development environment!"
           '';
         };
       };
