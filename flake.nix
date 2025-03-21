@@ -1,5 +1,5 @@
 {
-  description = "Multiple dev shells example";
+  description = "My dev shells";
 
   inputs.defaultpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nodejs16pkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
@@ -28,10 +28,19 @@
     {
       devShells.${system} = {
         jupiter = pkgs.mkShell {
-          buildInputs = [
-            pkgs.python3
-            pkgs.python3Packages.jupyter
-            pkgs.python3Packages.notebook
+          buildInputs = with pkgs; [
+            (python3.withPackages (
+              ps: with ps; [
+                ipython
+                jupyter
+                notebook
+                numpy
+                pandas
+                matplotlib
+                pytest
+                h5py
+              ]
+            ))
           ];
           shellHook = ''
             echo "Welcome to the Jupyter Notebook environment!"
