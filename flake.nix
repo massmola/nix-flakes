@@ -46,6 +46,16 @@
             echo "Welcome to the Jupyter Notebook environment!"
           '';
         };
+        
+        dotnet8 = pkgs.mkShell {
+          buildInputs = [
+            pkgs.dotnet-sdk_8  # .NET 8 SDK
+          ];
+
+          shellHook = ''
+            echo "Welcome to the .NET 8 development environment!"
+          '';
+      };
 
         node = pkgs.mkShell {
           buildInputs = [
