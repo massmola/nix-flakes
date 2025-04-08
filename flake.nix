@@ -39,7 +39,7 @@
                 matplotlib
                 pytest
                 h5py
-                sklearn
+                scikit-learn
               ]
             ))
           ];
