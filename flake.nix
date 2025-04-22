@@ -40,6 +40,7 @@
                 pytest
                 h5py
                 scikit-learn
+                seaborn
               ]
             ))
           ];
