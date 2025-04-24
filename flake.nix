@@ -1,4 +1,3 @@
-# flake.nix
 {
   description = "My dev shells";
 
@@ -73,34 +72,30 @@
           '';
         };
 
-        # PHP devshell 
-        php = pkgs.mkShell { 
+        # PHP devshell
+        php = pkgs.mkShell {
           # Define the packages to include in this shell
           buildInputs = with pkgs; [
-            # Core PHP package
-            php
-
-            # Common PHP extensions (add/remove as needed)
-            # You can find more extensions by searching the Nix Packages manual
-            # or using `nix search php82Extensions.<extension_name>` (replace 82 with your PHP version)
-            php.extensions.curl      # Enable cURL support
-            php.extensions.gd        # Enable GD library support for image manipulation
-            php.extensions.intl      # Enable Internationalization functions
-            php.extensions.mysqli    # Enable MySQL Improved Extension
-            php.extensions.pdo       # Enable PHP Data Objects
-            php.extensions.pdo_mysql # Enable PDO MySQL driver
-            php.extensions.zip       # Enable Zip archive support
+            php # PHP interpreter
+            apacheHttpd # Apache web server
+            apacheHttpd.extraModules.php # PHP module for Apache
+            # Add other PHP extensions or tools you might need here, e.g.:
+            php.extensions.pdo_mysql
+            # composer
+            # phpmyadmin # If you need a database management tool
           ];
 
           # Set environment variables (optional)
           # For example, you might set a specific PHP configuration directory
           shellHook = ''
             echo "PHP development shell active."
+            echo "To start Apache, you might need to run 'sudo apachectl start' or similar, depending on your system setup outside Nix."
+            echo "Alternatively, you can use the built-in PHP web server: 'php -S localhost:8000'"
           '';
 
           # A brief description of the shell
           meta = with pkgs.lib; {
-            description = "A development shell for PHP projects.";
+            description = "A development shell for PHP projects with Apache.";
           };
         };
       };
