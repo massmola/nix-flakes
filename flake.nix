@@ -90,11 +90,6 @@
             php.extensions.pdo       # Enable PHP Data Objects
             php.extensions.pdo_mysql # Enable PDO MySQL driver
             php.extensions.zip       # Enable Zip archive support
-
-            # Other useful development tools (optional)
-            composer # PHP dependency manager
-            # git      # Version control
-            # sqlite   # SQLite database command-line tool
           ];
 
           # Set environment variables (optional)
