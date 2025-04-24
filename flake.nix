@@ -73,8 +73,8 @@
           '';
         };
 
-        # PHP devshell (added)
-        php = pkgs.mkShell { # Added a name 'php' for this devshell
+        # PHP devshell 
+        php = pkgs.mkShell { 
           # Define the packages to include in this shell
           buildInputs = with pkgs; [
             # Core PHP package
@@ -94,10 +94,9 @@
 
           # Set environment variables (optional)
           # For example, you might set a specific PHP configuration directory
-          # shellHook = ''
-          #   export PHP_INI_SCAN_DIR="$PWD/php.d"
-          #   echo "PHP development shell active."
-          # '';
+          shellHook = ''
+            echo "PHP development shell active."
+          '';
 
           # A brief description of the shell
           meta = with pkgs.lib; {
