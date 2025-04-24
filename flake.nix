@@ -76,21 +76,13 @@
         php = pkgs.mkShell {
           # Define the packages to include in this shell
           buildInputs = with pkgs; [
-            php # PHP interpreter
-            apacheHttpd # Apache web server
-            apacheHttpd.extraModules.php # PHP module for Apache
-            # Add other PHP extensions or tools you might need here, e.g.:
-            php.extensions.pdo_mysql
-            # composer
-            # phpmyadmin # If you need a database management tool
+            php # PHP interpreter (should include Apache SAPI by default in shells)
           ];
 
           # Set environment variables (optional)
           # For example, you might set a specific PHP configuration directory
           shellHook = ''
             echo "PHP development shell active."
-            echo "To start Apache, you might need to run 'sudo apachectl start' or similar, depending on your system setup outside Nix."
-            echo "Alternatively, you can use the built-in PHP web server: 'php -S localhost:8000'"
           '';
 
           # A brief description of the shell
