@@ -56,6 +56,10 @@
             pkgs.dotnet-sdk_8  # .NET 8 SDK
           ];
 
+          environment.sessionVariables = {
+            DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet";
+          };
+
           shellHook = ''
             echo "Welcome to the .NET 8 development environment!"
           '';
