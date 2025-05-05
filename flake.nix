@@ -53,7 +53,8 @@
         # .NET 8 devshell
         dotnet8 = pkgs.mkShell {
           buildInputs = [
-            pkgs.dotnet-sdk_8  # .NET 8 SDK
+            pkgs.dotnet-sdk_8 # .NET 8 SDK
+            pkgs.cyclonedx-dotnet # Add CycloneDX .NET tool
           ];
 
           environment.sessionVariables = {
