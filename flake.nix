@@ -28,7 +28,7 @@
     {
       devShells.${system} = {
         # Jupyter Notebook devshell
-        jupiter = pkgs.mkShell {
+        jupyter = pkgs.mkShell {
           buildInputs = with pkgs; [
             (python3.withPackages (
               ps: with ps; [
