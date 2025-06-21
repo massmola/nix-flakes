@@ -30,6 +30,7 @@
         # Jupyter Notebook devshell
         py = pkgs.mkShell {
           buildInputs = with pkgs; [
+            pkgs.bashInteractive
             (python3.withPackages (
               ps: with ps; [
                 ipython
