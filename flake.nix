@@ -46,7 +46,7 @@
                 xgboost
                 scikit-learn
                 tqdm
-                imblearn
+                imbalanced-learn
               ]
             ))
           ];
