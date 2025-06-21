@@ -1,20 +1,20 @@
 {
   description = "My dev shells";
 
-  inputs.defaultpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nodejs16pkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
 
   outputs =
     {
       self,
-      defaultpkgs,
+      nixpkgs,
       nodejs16pkgs,
       ...
     }:
     let
       system = "x86_64-linux";
 
-      pkgs = import defaultpkgs {
+      pkgs = import nixpkgs {
         inherit system;
       };
 
@@ -28,7 +28,7 @@
     {
       devShells.${system} = {
         # Jupyter Notebook devshell
-        jupyter = pkgs.mkShell {
+        py = pkgs.mkShell {
           buildInputs = with pkgs; [
             (python3.withPackages (
               ps: with ps; [
