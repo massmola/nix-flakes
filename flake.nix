@@ -40,11 +40,13 @@
                 matplotlib
                 pytest
                 h5py
-                scikit-learn
                 seaborn
                 librosa
                 lightgbm
                 xgboost
+                scikit-learn
+                tqdm
+                imblearn
               ]
             ))
           ];
