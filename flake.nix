@@ -43,6 +43,8 @@
                 scikit-learn
                 seaborn
                 librosa
+                lightgbm
+                xgboost
               ]
             ))
           ];
