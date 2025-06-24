@@ -48,6 +48,7 @@
                 scikit-learn
                 tqdm
                 imbalanced-learn
+                graphviz
               ]
             ))
           ];
